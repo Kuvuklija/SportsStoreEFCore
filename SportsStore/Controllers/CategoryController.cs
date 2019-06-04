@@ -25,7 +25,7 @@ namespace SportsStore.Controllers
 
         public IActionResult EditCategory(long id) {
             ViewBag.EditId = id;
-            return View(nameof(Index), repository.Categories);
+            return View(nameof(Index), repository.Categories); //all categories in order to select EditId inside circul (foreach...)
         }
 
         [HttpPost]

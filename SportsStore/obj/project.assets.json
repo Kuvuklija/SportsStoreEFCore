@@ -13652,11 +13652,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ASP EF CORE\\SportsStore\\SportsStore\\SportsStore\\SportsStore.csproj",
+      "projectUniqueName": "C:\\ASP EF CORE\\SportsStoreEFCore\\SportsStore\\SportsStore.csproj",
       "projectName": "SportsStore",
-      "projectPath": "C:\\ASP EF CORE\\SportsStore\\SportsStore\\SportsStore\\SportsStore.csproj",
+      "projectPath": "C:\\ASP EF CORE\\SportsStoreEFCore\\SportsStore\\SportsStore.csproj",
       "packagesPath": "C:\\Users\\MM7\\.nuget\\packages\\",
-      "outputPath": "C:\\ASP EF CORE\\SportsStore\\SportsStore\\SportsStore\\obj\\",
+      "outputPath": "C:\\ASP EF CORE\\SportsStoreEFCore\\SportsStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
