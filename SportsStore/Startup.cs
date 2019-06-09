@@ -20,6 +20,7 @@ namespace SportsStore{
             //services.AddSingleton<IProductRepository, ProductRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IOrdersRepository, OrderRepository>();
             string conString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<DataContext>(options => options.UseSqlServer(conString));
         }
@@ -29,7 +30,10 @@ namespace SportsStore{
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}");
+            });
         }
     }
 }

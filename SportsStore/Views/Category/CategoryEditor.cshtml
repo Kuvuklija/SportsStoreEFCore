@@ -2,7 +2,7 @@
 
 <div class="row p-2">
     <div class="col-1"></div>
-    <div class="col"><input asp-for="Name" class="form-control" /></div>
+    <div class="col"><input asp-for="Name" class="form-control" /></div>@*automatic label field*@
     <div class="col"><input asp-for="Description" class="form-control" /></div>
     <div class="col-3">
         @if (Model.Id == 0) {
