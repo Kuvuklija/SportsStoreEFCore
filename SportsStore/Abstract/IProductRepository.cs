@@ -1,4 +1,5 @@
 ﻿using SportsStore.Models;
+using SportsStore.Models.Pages;
 using System.Collections.Generic;
 
 namespace SportsStore.Abstract
@@ -11,5 +12,8 @@ namespace SportsStore.Abstract
         void UpdateProduct(Product product);
         void UpdateAll(Product[] products);
         void Delete(Product product);
+
+        PageList<Product> GetProducts(QueryOptions options); //paging
+
     }
 }

@@ -17,6 +17,8 @@
             <div class="col-2">
                 <a asp-controller="Home" asp-action="Index" class="@GetClassForButton("Home")">Products</a>
                 <a asp-controller="Category" asp-action="IndexCategory" class="@GetClassForButton("Category")">Categories</a>
+                <a asp-controller="Orders" asp-action="IndexOrder" class="@GetClassForButton("Orders")">Orders</a>
+                <a asp-controller="Seed" asp-action="IndexSeed" class="@GetClassForButton("Seed")">Seed Data</a>
             </div>
             <div class="col">
                 @RenderBody()

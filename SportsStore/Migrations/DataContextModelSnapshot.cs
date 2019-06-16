@@ -45,6 +45,8 @@ namespace SportsStore.Migrations
 
                     b.Property<bool>("Shipped");
 
+                    b.Property<string>("State");
+
                     b.Property<string>("ZipCode");
 
                     b.HasKey("Id");

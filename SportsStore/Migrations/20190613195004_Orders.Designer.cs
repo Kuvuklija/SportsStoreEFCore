@@ -11,8 +11,8 @@ using System;
 namespace SportsStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190602162041_Categories")]
-    partial class Categories
+    [Migration("20190613195004_Orders")]
+    partial class Orders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,46 @@ namespace SportsStore.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("SportsStore.Models.Order", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("CustomerName");
+
+                    b.Property<bool>("Shipped");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("SportsStore.Models.OrderLine", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long>("OrderId");
+
+                    b.Property<long>("ProductId");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderLines");
+                });
+
             modelBuilder.Entity("SportsStore.Models.Product", b =>
                 {
                     b.Property<long>("Id")
@@ -53,6 +93,19 @@ namespace SportsStore.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SportsStore.Models.OrderLine", b =>
+                {
+                    b.HasOne("SportsStore.Models.Order", "Order")
+                        .WithMany("Lines")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("SportsStore.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SportsStore.Models.Product", b =>

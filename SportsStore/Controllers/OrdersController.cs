@@ -30,6 +30,12 @@ namespace SportsStore.Controllers
 
         [HttpPost]
         public IActionResult AddOrUpdateOrder(Order order) {
+            order.Lines = order.Lines
+                .Where(l => l.Id > 0 || (l.Id == 0 && l.Quantity > 0)).ToArray(); //lines (exactly - id) already was save in the order
+            if (order.Id == 0)
+                orderRepository.AddOrder(order);
+            else
+                orderRepository.UpdateOrder(order);
             return RedirectToAction(nameof(IndexOrder));
         }
 

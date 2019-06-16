@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportsStore.Abstract;
 using SportsStore.Models;
+using SportsStore.Models.Pages;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -53,6 +54,11 @@ namespace SportsStore.Concrete
         public void Delete(Product product) {
             context.Products.Remove(product);
             context.SaveChanges();
+        }
+
+        public PageList<Product> GetProducts(QueryOptions options) {
+            return new PageList<Product>(context.Products
+                .Include(p=>p.Category), options);
         }
     }
 }
